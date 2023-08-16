@@ -1,0 +1,27 @@
+ #paneColor{
+    -fx-background-color: linear-gradient(#FF3366, #BA265D);
+ }
+
+ .button{
+     -fx-border-radius: 50px 30px 50px 30px;
+     -fx-background-color:linear-gradient(#FF3366, #BA265D);
+     -fx-border-color: black;
+     -fx-border-width: 2px;
+     -fx-border-style: solid;
+     -fx-cursor:hand;
+
+ }
+ .button:hover{
+     -fx-background-color: #FFFF;
+     -fx-border-color: black;
+     -fx-border-width: 2px;
+     -fx-border-style: solid;
+ }
+ #lblMenuMain{
+     -fx-background-color:linear-gradient(#FF3366, #BA265D);
+     -fx-border-radius: 50px 30px 50px 30px;
+     -fx-border-color: black;
+     -fx-border-width: 2px;
+     -fx-border-style: solid;
+
+ }
