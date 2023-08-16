@@ -1,0 +1,32 @@
+#txtCode, #textCodeApprobation, #txtCant,
+#txtContainerWeight, #txtName, #comboOrigen, #txtPackagingDate ,
+#txtTemperature, #txtValue, #txtOrigin, #txtExpirationDate, #comboTipo, #TextADercripcion{
+    -fx-background-color:#FF3366;
+    -fx-background-insets: 0 0 5 5;
+    -fx-border-color:#BA265D;
+    -fx-border-radius: 10px 10px 10px 10px;
+    -fx-text-inner-color:black;
+    -fx-prompt-text-fill:#fff;
+
+}
+
+#paneBorder, #paneBorder2{
+    -fx-border-color:#BA265D;
+    -fx-border-radius: 10px 10px 10px 10px;
+    -fx-border-width: 5px;
+}
+.button{
+    -fx-border-radius: 50px 30px 50px 30px;
+    -fx-background-color:linear-gradient(#FF3366, #BA265D);
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-border-style: solid;
+    -fx-cursor:hand;
+
+}
+.button:hover{
+    -fx-background-color: #FFFF;
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-border-style: solid;
+}
