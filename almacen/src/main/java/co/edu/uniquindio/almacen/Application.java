@@ -1,5 +1,8 @@
 package co.edu.uniquindio.almacen;
 
+import co.edu.uniquindio.almacen.controller.ConsultProductsController;
+import co.edu.uniquindio.almacen.controller.MenuController;
+import co.edu.uniquindio.almacen.controller.ProductsController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -12,28 +15,24 @@ public class Application extends javafx.application.Application {
     private Stage primaryStage;
     @Override
     public void start(Stage stage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("menu.fxml"));
-        Scene scene = new Scene(fxmlLoader.load(), 600, 400);
-        stage.setTitle("Hello!");
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("consultProducts.fxml"));
+        Parent root= loader.load();
+        Scene scene= new Scene(root);
         stage.setScene(scene);
+        ConsultProductsController controller=loader.getController();
+        controller.setStage( stage);
         stage.show();
 
-    }
-    public void loadingWindowProducts() {
 
-        try {
-            FXMLLoader load = new FXMLLoader(getClass().getResource("products.fxml"));
-            Parent root = load.load();
-            Scene escena = new Scene(root);
-            primaryStage = new Stage();
-            primaryStage.setResizable(false);
-            primaryStage.initModality(Modality.APPLICATION_MODAL);
-            primaryStage.setScene(escena);
-            primaryStage.setTitle("ventana de resgistro");
-            primaryStage.showAndWait();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+    }
+    public void loadingWindowProducts() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("products2.fxml"));
+        Parent root = loader.load();
+
+        Stage stage = new Stage();
+        stage.setScene(new Scene(root));
+        stage.show();
+
 
     }
 

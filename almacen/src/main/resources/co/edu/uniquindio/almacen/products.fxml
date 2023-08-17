@@ -12,16 +12,16 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="583.0" prefWidth="681.0" stylesheets="@css/products.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.almacen.controller.ProductsControllerlbk">
+<AnchorPane prefHeight="641.0" prefWidth="681.0" stylesheets="@css/products.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.almacen.controller.ProductsController">
    <children>
-      <Label layoutX="243.0" layoutY="36.0" text="Productos">
+      <Label layoutX="126.0" layoutY="37.0" text="Productos">
          <font>
             <Font name="Calibri Bold" size="48.0" />
          </font>
       </Label>
-      <Pane fx:id="paneBorder" layoutX="4.0" layoutY="114.0" prefHeight="346.0" prefWidth="671.0" stylesheets="@css/products.css">
+      <Pane fx:id="paneBorder" layoutX="2.0" layoutY="147.0" prefHeight="373.0" prefWidth="671.0" stylesheets="@css/products.css">
          <children>
-            <TextField fx:id="txtName" layoutX="14.0" layoutY="27.0" prefHeight="37.0" prefWidth="202.0" promptText="Name">
+            <TextField fx:id="txtName" layoutX="14.0" layoutY="27.0" prefHeight="37.0" prefWidth="202.0" promptText="Nombre">
                <font>
                   <Font name="Calibri" size="16.0" />
                </font></TextField>
@@ -57,13 +57,18 @@
                <font>
                   <Font name="Calibri" size="16.0" />
                </font></TextField>
-            <TextArea fx:id="TextADercripcion" layoutX="14.0" layoutY="277.0" prefHeight="55.0" prefWidth="644.0" promptText="txtAreaDescription" text="&#10;" />
+            <TextArea fx:id="TextADercripcion" layoutX="14.0" layoutY="304.0" prefHeight="55.0" prefWidth="644.0" promptText="txtAreaDescription" text="&#10;" />
             <ComboBox fx:id="comboTipo" layoutX="14.0" layoutY="218.0" prefHeight="37.0" prefWidth="300.0" promptText="Tipo" />
             <Line endX="188.0" layoutX="341.0" layoutY="79.0" startX="-229.0" />
             <Line endX="188.0" layoutX="341.0" layoutY="146.0" startX="-229.0" />
             <Line endX="188.0" layoutX="341.0" layoutY="210.0" startX="-229.0" />
             <ComboBox fx:id="comboOrigen" layoutX="352.0" layoutY="218.0" prefHeight="37.0" prefWidth="307.0" promptText="Origen" />
             <Line endX="188.0" layoutX="341.0" layoutY="267.0" startX="-229.0" />
+            <Label fx:id="lblDescription" layoutX="285.0" layoutY="274.0" text="Descripcion">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Label>
          </children>
       </Pane>
       <ImageView fx:id="imgLogo" fitHeight="96.0" fitWidth="132.0" layoutX="28.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
@@ -71,33 +76,47 @@
             <Image url="@imagenes/logoAlmacen.png" />
          </image>
       </ImageView>
-      <Pane fx:id="paneBorder2" layoutX="1.0" layoutY="473.0" prefHeight="96.0" prefWidth="671.0" stylesheets="@css/products.css">
+      <Pane fx:id="paneBorder2" layoutX="2.0" layoutY="531.0" prefHeight="96.0" prefWidth="671.0" stylesheets="@css/products.css">
          <children>
-            <Button fx:id="btnCreate" layoutX="139.0" layoutY="29.0" mnemonicParsing="false" onAction="#create" prefHeight="38.0" prefWidth="99.0" text="Crear">
+            <Button fx:id="btnCreate" layoutX="150.0" layoutY="29.0" mnemonicParsing="false" onAction="#create" prefHeight="38.0" prefWidth="103.0" text="Crear">
                <font>
                   <Font name="Calibri" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btnUptade" layoutX="277.0" layoutY="29.0" mnemonicParsing="false" onAction="#Update" prefHeight="38.0" prefWidth="99.0" text="Actualizar">
+            <Button fx:id="btnMenu" layoutX="14.0" layoutY="29.0" mnemonicParsing="false" onAction="#openManu" prefHeight="38.0" prefWidth="103.0" text="Menu">
                <font>
                   <Font name="Calibri" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btnDelete" layoutX="415.0" layoutY="29.0" mnemonicParsing="false" onAction="#delete" prefHeight="38.0" prefWidth="99.0" text="Eliminar">
+            <Button fx:id="btnUpdate" layoutX="284.0" layoutY="29.0" mnemonicParsing="false" onAction="#update" prefHeight="38.0" prefWidth="103.0" text="Actualizar">
                <font>
                   <Font name="Calibri" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btnConsult" layoutX="552.0" layoutY="29.0" mnemonicParsing="false" onAction="#consult" prefHeight="38.0" prefWidth="99.0" text="Consultar">
+            <Button fx:id="btnDelete" layoutX="553.0" layoutY="29.0" mnemonicParsing="false" onAction="#delete" prefHeight="38.0" prefWidth="103.0" text="Eliminar">
                <font>
                   <Font name="Calibri" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btnMenu" layoutX="14.0" layoutY="29.0" mnemonicParsing="false" onAction="#openManu" prefHeight="38.0" prefWidth="99.0" text="Manu">
+            <Button fx:id="btnVisualizar" layoutX="416.0" layoutY="29.0" mnemonicParsing="false" onAction="#lista" prefHeight="38.0" prefWidth="103.0" text="Lista">
                <font>
                   <Font name="Calibri" size="18.0" />
                </font>
             </Button>
+         </children>
+      </Pane>
+      <Pane fx:id="paneBorder3" layoutX="337.0" layoutY="11.0" prefHeight="129.0" prefWidth="337.0">
+         <children>
+            <Button fx:id="btnConsult" layoutX="216.0" layoutY="77.0" mnemonicParsing="false" onAction="#consult" prefHeight="38.0" prefWidth="103.0" text="Consultar">
+               <font>
+                  <Font name="Calibri" size="18.0" />
+               </font>
+            </Button>
+            <TextField fx:id="txtNameConsult" layoutX="14.0" layoutY="21.0" prefHeight="37.0" prefWidth="202.0" promptText="Nombre del producto">
+               <font>
+                  <Font name="Calibri" size="16.0" />
+               </font>
+            </TextField>
          </children>
       </Pane>
    </children>

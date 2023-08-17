@@ -8,4 +8,5 @@ module co.edu.uniquindio.almacen.almacen {
     exports co.edu.uniquindio.almacen;
     exports co.edu.uniquindio.almacen.controller;
     opens co.edu.uniquindio.almacen.controller to javafx.fxml;
+    
 }

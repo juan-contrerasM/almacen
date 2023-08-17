@@ -10,7 +10,7 @@
 
 }
 
-#paneBorder, #paneBorder2{
+#paneBorder, #paneBorder2, #paneBorder3, #paneBorder4{
     -fx-border-color:#BA265D;
     -fx-border-radius: 10px 10px 10px 10px;
     -fx-border-width: 5px;
@@ -30,3 +30,4 @@
     -fx-border-width: 2px;
     -fx-border-style: solid;
 }
+
