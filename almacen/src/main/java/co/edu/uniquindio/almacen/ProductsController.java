@@ -58,6 +58,10 @@ public class ProductsController implements Initializable {
         @FXML
         private Button btnUpdate;
 
+
+        @FXML
+        private Button btnloading;
+
         @FXML
         private Button btnVisualizar;
 
@@ -133,6 +137,7 @@ public class ProductsController implements Initializable {
                                 txtPackagingDate.setText(packagedProduct.getPackagingDate());
                                 txtContainerWeight.setText(packagedProduct.getContainerWeight()+"");
                                 comboOrigen.getItems().addAll(packagedProduct.getOrigin());
+                                disableTextfields();
                          }
                 }
                 for (PerishableProduct perishableProduct :perishableProductList) {
@@ -143,6 +148,7 @@ public class ProductsController implements Initializable {
                                 txtCant.setText(perishableProduct.getAmount()+"");
                                 TextADercripcion.setText(perishableProduct.getDescription());
                                 txtExpirationDate.setText(perishableProduct.getDueDate());
+                                disableTextfields();
 
                         }
 
@@ -156,6 +162,7 @@ public class ProductsController implements Initializable {
                                 TextADercripcion.setText(refrigeratedProduct.getDescription());
                                 textCodeApprobation.setText(refrigeratedProduct.getApprovalCode());
                                 txtTemperature.setText(refrigeratedProduct.getTemperature()+"");
+                                disableTextfields();
 
                         }
 
@@ -184,8 +191,12 @@ public class ProductsController implements Initializable {
                       JOptionPane.showMessageDialog(null," Hay campos sin completar, es obligatiorio seleccionar el tipo");
 
               } else if (comboTipo.getValue().equals("Perecederos")) {
+                              //se hace convercion aca para evitar la excepcion por conversion de dato
                               unitValue = Double.parseDouble(txtValue.getText());
                               amount = Integer.parseInt(txtCant.getText());
+
+
+
                               //atributos unicos
                               String expirationDate = txtExpirationDate.getText();
                               PerishableProduct perishableProduct = new PerishableProduct();
@@ -200,6 +211,7 @@ public class ProductsController implements Initializable {
                               perishableProductList.add(perishableProduct);
                               JOptionPane.showMessageDialog(null,"Se ha guardado el producto");
                               cleanSpeaces();
+                              enableTextfields();
 
 
 
@@ -222,6 +234,7 @@ public class ProductsController implements Initializable {
                               listRefrigerateProducts.add(refrigeratedProduct);
                               JOptionPane.showMessageDialog(null,"Se ha guardado el producto");
                               cleanSpeaces();
+                              enableTextfields();
 
                       } else if (comboTipo.getValue().equals("Envasados")) {
                               unitValue = Double.parseDouble(txtValue.getText());
@@ -242,6 +255,7 @@ public class ProductsController implements Initializable {
                               listPackagedProduc.add(packagedProduct);
                       JOptionPane.showMessageDialog(null,"Se ha guardado el producto");
                               cleanSpeaces();
+                              enableTextfields();
 
 
                       }
@@ -253,6 +267,25 @@ public class ProductsController implements Initializable {
 
         @FXML
         void delete(ActionEvent event) {
+                String name= txtNameConsult.getText();
+                for (int i = 0; i <perishableProductList.size() ; i++) {
+                        if (perishableProductList.get(i).getName().equals(name)) {
+                                perishableProductList.remove(i);
+                        }
+                }
+                for (int i = 0; i <listPackagedProduc.size() ; i++) {
+                        if (listPackagedProduc.get(i).getName().equals(name)) {
+                                listPackagedProduc.remove(i);
+                        }
+                }
+                for (int i = 0; i <listRefrigerateProducts.size() ; i++) {
+                        if (listRefrigerateProducts.get(i).getName().equals(name)) {
+                                listRefrigerateProducts.remove(i);
+                        }
+                }
+                JOptionPane.showMessageDialog(null ,"accion exitosa");
+                cleanSpeaces();
+
 
         }
 
@@ -274,10 +307,29 @@ public class ProductsController implements Initializable {
         @FXML
         void update(ActionEvent event) {
 
-        }
+                create(event);
+                delete(event);
+
+
+
+
+                }
+
+
+
+
 
         @FXML
-        void lista(ActionEvent event) {
+        void lista(ActionEvent event) throws IOException {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("consultProducts.fxml"));
+                Parent root = loader.load();
+                ConsultProductsController controller = loader.getController();
+                controller.setStage(stage); // Pasar la referencia del Stage actual a la nueva ventana
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+                // Cierra el stage actual al regresar al menú
+                ((Stage) btnVisualizar.getScene().getWindow()).close();
 
         }
 
@@ -302,11 +354,51 @@ public class ProductsController implements Initializable {
                 TextADercripcion.setText("");
                 txtPackagingDate.setText("");
                 txtContainerWeight.setText("");
+
                 txtTemperature.setText("");
                 textCodeApprobation.setText("");
                 txtExpirationDate.setText("");
 
+
         }
+
+        public void disableTextfields(){
+                if (comboTipo.getValue()!=null) {
+                        if (comboTipo.getValue().equals("Perecederos")) {
+                                txtPackagingDate.setDisable(true);
+                                txtContainerWeight.setDisable(true);
+                                txtTemperature.setDisable(true);
+                                textCodeApprobation.setDisable(true);
+
+                        } else if (comboTipo.getValue().equals("Refrigerados")) {
+                                txtPackagingDate.setDisable(true);
+                                txtContainerWeight.setDisable(true);
+                                txtExpirationDate.setDisable(true);
+                        } else if (comboTipo.getValue().equals("Envasados")) {
+                                txtTemperature.setDisable(true);
+                                textCodeApprobation.setDisable(true);
+                                txtExpirationDate.setDisable(true);
+                        }
+                }  else {
+                        JOptionPane.showMessageDialog(null, "seleccione el tipo de producto");
+                }
+
+        }
+        public void enableTextfields(){
+                txtPackagingDate.setDisable(false);
+                txtContainerWeight.setDisable(false);
+                txtTemperature.setDisable(false);
+                textCodeApprobation.setDisable(false);
+                txtExpirationDate.setDisable(false);
+
+        }
+        @FXML
+        void loadingS(ActionEvent event) {
+                JOptionPane.showMessageDialog(null,"ahora cree rellene los espacios disponibles y uncale en crear");
+                disableTextfields();
+
+        }
+
 }
 
 

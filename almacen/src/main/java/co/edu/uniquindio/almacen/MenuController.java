@@ -12,6 +12,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -54,6 +55,7 @@ public class MenuController  implements Initializable {
 
     @FXML
     void openProducts(ActionEvent event) throws IOException {
+        JOptionPane.showMessageDialog(null, "primero seleccionar el tipo de producto y undir en el boton cargar");
         FXMLLoader loader= new FXMLLoader(getClass().getResource("products.fxml"));
         Parent root= loader.load();
         ProductsController controller= loader.getController();
