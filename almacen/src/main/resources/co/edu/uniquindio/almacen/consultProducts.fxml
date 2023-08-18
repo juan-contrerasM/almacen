@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="486.0" prefWidth="600.0" stylesheets="@css/products.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.almacen.controller.ConsultProductsController">
+   <children>
+      <Label fx:id="lblTitle" alignment="CENTER" layoutX="193.0" layoutY="47.0" prefHeight="41.0" prefWidth="244.0" style="-fx-background-color: linear-gradient(#FF3366, #BA265D);" text="Lista Productos">
+         <font>
+            <Font name="Calibri Bold" size="36.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imgLogo" fitHeight="79.0" fitWidth="92.0" layoutX="23.0" layoutY="28.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@imagenes/logoAlmacen.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="btnProduct" layoutX="35.0" layoutY="424.0" mnemonicParsing="false" onAction="#openProdcuts" text="Productos">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="lblMenu" layoutX="456.0" layoutY="424.0" mnemonicParsing="false" onAction="#openMenu" prefHeight="38.0" prefWidth="103.0" text="menu">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Button>
+      <Pane fx:id="paneBorder4" layoutX="77.0" layoutY="107.0" prefHeight="304.0" prefWidth="476.0" stylesheets="@css/products.css">
+         <children>
+            <TableView fx:id="tabProducts" layoutX="14.0" layoutY="24.0" prefHeight="257.0" prefWidth="431.0">
+              <columns>
+                <TableColumn fx:id="colNombre" prefWidth="120.0" text="Nombre" />
+                <TableColumn fx:id="colCant" prefWidth="75.0" text="Cantidad" />
+                  <TableColumn fx:id="colValor" prefWidth="75.0" text="Valor" />
+                  <TableColumn fx:id="colCodigo" prefWidth="120.0" text="codigo" />
+              </columns>
+            </TableView>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

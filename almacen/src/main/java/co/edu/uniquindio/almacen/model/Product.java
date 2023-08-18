@@ -25,6 +25,10 @@ public  abstract class  Product {
         this.unitValue=unitValue;
         this.amount=amount;
     }
+    public Product(){
+
+    }
+
 
     public String getCode() {
         return code;
