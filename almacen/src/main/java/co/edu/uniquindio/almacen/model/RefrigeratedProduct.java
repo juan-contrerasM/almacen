@@ -11,10 +11,11 @@ public class RefrigeratedProduct extends Product {
 
     private  String approvalCode;
     private int temperature;
-    public RefrigeratedProduct(String code,String name,String description,double unitValue,int amount,String approvalCode,int temperature){
-        super(code,name,description,unitValue,amount);
+    public RefrigeratedProduct(String code,String name,String description,double unitValue,int amount,String approvalCode,int temperature,String tipo){
+        super(code,name,description,unitValue,amount, tipo);
         this.approvalCode = approvalCode;
         this.temperature = temperature;
+
     }
     public RefrigeratedProduct(){
 
@@ -46,6 +47,7 @@ public class RefrigeratedProduct extends Product {
                 ", description='" + description + '\'' +
                 ", unitValue=" + unitValue +
                 ", amount=" + amount +
+                "tipo="+tipo+
                 '}';
     }
 }

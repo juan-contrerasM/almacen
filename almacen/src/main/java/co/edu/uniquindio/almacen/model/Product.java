@@ -18,12 +18,17 @@ public  abstract class  Product {
     protected double unitValue;
     protected int amount;
 
-    public Product(String code,String name,String description,double unitValue,int amount) {
+    protected String tipo;
+
+
+
+    public Product(String code, String name, String description, double unitValue, int amount,String tipo) {
         this.code= code;
         this.name= name;
         this.description=description;
         this.unitValue=unitValue;
         this.amount=amount;
+        this.tipo=tipo;
     }
     public Product(){
 
@@ -69,4 +74,11 @@ public  abstract class  Product {
     public void setAmount(int amount) {
         this.amount = amount;
     }
+    public String getTipo() {
+        return tipo;
+    }
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
 }

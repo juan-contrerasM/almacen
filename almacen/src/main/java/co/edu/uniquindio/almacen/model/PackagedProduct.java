@@ -15,8 +15,8 @@ public class PackagedProduct extends Product {
     private double containerWeight;
     private String origin;
 
-     public PackagedProduct(String code,String name,String description,double unitValue,int amount,String packagingDate,double containerWeight, String origin){
-         super(code,name,description,unitValue,amount);
+     public PackagedProduct(String code,String name,String description,double unitValue,int amount,String packagingDate,double containerWeight, String origin,String tipo){
+         super(code,name,description,unitValue,amount,tipo);
          this.packagingDate=packagingDate;
          this.containerWeight= containerWeight;
          this.origin=origin;
@@ -60,6 +60,6 @@ public class PackagedProduct extends Product {
                 ", description='" + description + '\'' +
                 ", unitValue=" + unitValue +
                 ", amount=" + amount +
-                '}';
+                "tipo="+tipo+'}';
     }
 }

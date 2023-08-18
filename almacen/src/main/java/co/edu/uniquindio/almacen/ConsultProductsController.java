@@ -1,6 +1,9 @@
 package co.edu.uniquindio.almacen;
 
+import co.edu.uniquindio.almacen.model.PackagedProduct;
+import co.edu.uniquindio.almacen.model.PerishableProduct;
 import co.edu.uniquindio.almacen.model.Product;
+import co.edu.uniquindio.almacen.model.RefrigeratedProduct;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,10 +24,22 @@ import javafx.collections.ObservableList;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class ConsultProductsController implements Initializable {
     Stage stage;
+    private ArrayList<RefrigeratedProduct> listRefrigerateProducts=new ArrayList<RefrigeratedProduct>();
+    private ArrayList<PackagedProduct>listPackagedProduc= new ArrayList<PackagedProduct>();
+    private ArrayList<PerishableProduct>perishableProductList= new ArrayList<PerishableProduct>();
+    private ConsultProductsController(){
+
+    }
+    public ConsultProductsController(ArrayList<RefrigeratedProduct> listRefrigerateProducts,ArrayList<PackagedProduct>listPackagedProduc,ArrayList<PerishableProduct>perishableProductList){
+        this.listPackagedProduc=listPackagedProduc;
+        this.listRefrigerateProducts=listRefrigerateProducts;
+        this.perishableProductList=perishableProductList;
+    }
 
     @FXML
     private Button btnProduct;

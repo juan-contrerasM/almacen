@@ -40,6 +40,9 @@ public class ProductsController implements Initializable {
 
         // atributo fxml
         @FXML
+        private Button btnClean;
+
+        @FXML
 
         private TextArea TextADercripcion;
 
@@ -136,7 +139,8 @@ public class ProductsController implements Initializable {
                                 TextADercripcion.setText(packagedProduct.getDescription());
                                 txtPackagingDate.setText(packagedProduct.getPackagingDate());
                                 txtContainerWeight.setText(packagedProduct.getContainerWeight()+"");
-                                comboOrigen.getItems().addAll(packagedProduct.getOrigin());
+                                comboTipo.setValue(packagedProduct.getTipo());
+
                                 disableTextfields();
                          }
                 }
@@ -148,6 +152,7 @@ public class ProductsController implements Initializable {
                                 txtCant.setText(perishableProduct.getAmount()+"");
                                 TextADercripcion.setText(perishableProduct.getDescription());
                                 txtExpirationDate.setText(perishableProduct.getDueDate());
+                                comboTipo.setValue(perishableProduct.getTipo());
                                 disableTextfields();
 
                         }
@@ -162,6 +167,7 @@ public class ProductsController implements Initializable {
                                 TextADercripcion.setText(refrigeratedProduct.getDescription());
                                 textCodeApprobation.setText(refrigeratedProduct.getApprovalCode());
                                 txtTemperature.setText(refrigeratedProduct.getTemperature()+"");
+                                comboTipo.setValue(refrigeratedProduct.getTipo());
                                 disableTextfields();
 
                         }
@@ -181,6 +187,7 @@ public class ProductsController implements Initializable {
                 String code =txtCode.getText();
                 String name=txtName.getText();
                 String description =TextADercripcion.getText();
+                String tipo =  comboTipo.getSelectionModel().getSelectedItem();
                 double unitValue=0;
                 int amount=0;
 
@@ -208,7 +215,12 @@ public class ProductsController implements Initializable {
                               perishableProduct.setDescription(description);
                               perishableProduct.setUnitValue(unitValue);
                               perishableProduct.setDueDate(expirationDate);
+                              perishableProduct.setTipo(tipo);
+
                               perishableProductList.add(perishableProduct);
+
+
+                      System.out.println(perishableProduct);
                               JOptionPane.showMessageDialog(null,"Se ha guardado el producto");
                               cleanSpeaces();
                               enableTextfields();
@@ -231,6 +243,10 @@ public class ProductsController implements Initializable {
                               refrigeratedProduct.setDescription(description);
                               refrigeratedProduct.setTemperature(temperature);
                               refrigeratedProduct.setApprovalCode(codeApprobation);
+                              refrigeratedProduct.setUnitValue(unitValue);
+                              refrigeratedProduct.setTipo(tipo);
+
+                                System.out.println(refrigeratedProduct);
                               listRefrigerateProducts.add(refrigeratedProduct);
                               JOptionPane.showMessageDialog(null,"Se ha guardado el producto");
                               cleanSpeaces();
@@ -252,14 +268,24 @@ public class ProductsController implements Initializable {
                               packagedProduct.setOrigin(origin);
                               packagedProduct.setContainerWeight(cointarWeight);
                               packagedProduct.setPackagingDate(packageDate);
+                              packagedProduct.setUnitValue(unitValue);
+                              packagedProduct.setTipo(tipo);
                               listPackagedProduc.add(packagedProduct);
                       JOptionPane.showMessageDialog(null,"Se ha guardado el producto");
-                              cleanSpeaces();
+                      System.out.println(packagedProduct);
+                      cleanSpeaces();
                               enableTextfields();
 
 
                       }
               }
+
+
+        @FXML
+        void clean(ActionEvent event) {
+
+                cleanSpeaces();
+        }
 
 
 
@@ -323,6 +349,7 @@ public class ProductsController implements Initializable {
         void lista(ActionEvent event) throws IOException {
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("consultProducts.fxml"));
                 Parent root = loader.load();
+                ConsultProductsController controllerDataBase= new ConsultProductsController(listRefrigerateProducts,listPackagedProduc,perishableProductList);
                 ConsultProductsController controller = loader.getController();
                 controller.setStage(stage); // Pasar la referencia del Stage actual a la nueva ventana
                 Scene scene = new Scene(root);
@@ -358,6 +385,7 @@ public class ProductsController implements Initializable {
                 txtTemperature.setText("");
                 textCodeApprobation.setText("");
                 txtExpirationDate.setText("");
+                enableTextfields();
 
 
         }

@@ -122,6 +122,11 @@
                   <Font name="Calibri" size="16.0" />
                </font>
             </TextField>
+            <Button fx:id="btnClean" layoutX="14.0" layoutY="77.0" mnemonicParsing="false" onAction="#clean" prefHeight="38.0" prefWidth="103.0" text="Limpiar">
+               <font>
+                  <Font name="Calibri" size="14.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </children>

@@ -8,8 +8,8 @@ public class PerishableProduct extends Product {
 
     private String dueDate;
 
-    public PerishableProduct(String code,String name,String description,double unitValue,int amount,String dueDate){
-        super(code,name,description,unitValue,amount);
+    public PerishableProduct(String code,String name,String description,double unitValue,int amount,String dueDate, String tipo){
+        super(code,name,description,unitValue,amount, tipo );
         this.dueDate=dueDate;
     }
     public  PerishableProduct(){
@@ -33,6 +33,7 @@ public class PerishableProduct extends Product {
                 ", description='" + description + '\'' +
                 ", unitValue=" + unitValue +
                 ", amount=" + amount +
+                "tipo="+tipo+
                 '}';
     }
 }
