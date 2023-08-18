@@ -6,18 +6,33 @@ public class PerishableProduct extends Product {
 
     //duedate significa fecha de vencimiento
 
-    private LocalDate dueDate;
+    private String dueDate;
 
-    public PerishableProduct(String code,String name,String description,double unitValue,int amount,LocalDate dueDate){
+    public PerishableProduct(String code,String name,String description,double unitValue,int amount,String dueDate){
         super(code,name,description,unitValue,amount);
         this.dueDate=dueDate;
     }
+    public  PerishableProduct(){
 
-    public LocalDate getDueDate() {
+    }
+
+    public String getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(LocalDate dueDate) {
+    public void setDueDate(String dueDate) {
         this.dueDate = dueDate;
+    }
+
+    @Override
+    public String toString() {
+        return "PerishableProduct{" +
+                "dueDate='" + dueDate + '\'' +
+                ", code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", unitValue=" + unitValue +
+                ", amount=" + amount +
+                '}';
     }
 }

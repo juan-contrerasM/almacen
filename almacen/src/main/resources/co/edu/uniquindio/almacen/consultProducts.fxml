@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="486.0" prefWidth="600.0" stylesheets="@css/products.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.almacen.controller.ConsultProductsController">
+<AnchorPane prefHeight="486.0" prefWidth="600.0" stylesheets="@css/products.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.almacen.ConsultProductsController">
    <children>
       <Label fx:id="lblTitle" alignment="CENTER" layoutX="193.0" layoutY="47.0" prefHeight="41.0" prefWidth="244.0" style="-fx-background-color: linear-gradient(#FF3366, #BA265D);" text="Lista Productos">
          <font>

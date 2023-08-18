@@ -16,6 +16,9 @@ public class RefrigeratedProduct extends Product {
         this.approvalCode = approvalCode;
         this.temperature = temperature;
     }
+    public RefrigeratedProduct(){
+
+    }
 
     public String getApprovalCode() {
         return approvalCode;
@@ -31,5 +34,18 @@ public class RefrigeratedProduct extends Product {
 
     public void setTemperature(int temperature) {
         this.temperature = temperature;
+    }
+
+    @Override
+    public String toString() {
+        return "RefrigeratedProduct{" +
+                "approvalCode='" + approvalCode + '\'' +
+                ", temperature=" + temperature +
+                ", code='" + code + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", unitValue=" + unitValue +
+                ", amount=" + amount +
+                '}';
     }
 }

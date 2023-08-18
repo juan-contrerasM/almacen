@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="641.0" prefWidth="681.0" stylesheets="@css/products.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.almacen.controller.ProductsController">
+<AnchorPane prefHeight="641.0" prefWidth="681.0" stylesheets="@css/products.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.almacen.ProductsController">
    <children>
       <Label layoutX="126.0" layoutY="37.0" text="Productos">
          <font>
