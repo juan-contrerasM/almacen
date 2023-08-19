@@ -10,7 +10,6 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane prefHeight="486.0" prefWidth="600.0" stylesheets="@css/products.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.almacen.ConsultProductsController">
    <children>
       <Label fx:id="lblTitle" alignment="CENTER" layoutX="193.0" layoutY="47.0" prefHeight="41.0" prefWidth="244.0" style="-fx-background-color: linear-gradient(#FF3366, #BA265D);" text="Lista Productos">
@@ -36,14 +35,22 @@
       <Pane fx:id="paneBorder4" layoutX="77.0" layoutY="107.0" prefHeight="304.0" prefWidth="476.0" stylesheets="@css/products.css">
          <children>
             <TableView fx:id="tabProducts" layoutX="14.0" layoutY="24.0" prefHeight="257.0" prefWidth="431.0">
-              <columns>
-                <TableColumn fx:id="colNombre" prefWidth="120.0" text="Nombre" />
-                <TableColumn fx:id="colCant" prefWidth="75.0" text="Cantidad" />
-                  <TableColumn fx:id="colValor" prefWidth="75.0" text="Valor" />
-                  <TableColumn fx:id="colCodigo" prefWidth="120.0" text="codigo" />
-              </columns>
+
+               <columns>
+                  <TableColumn fx:id="colCant" />
+                  <TableColumn fx:id="colCodigo" />
+                  <TableColumn fx:id="colNombre" />
+                  <TableColumn fx:id="colDescription" />
+                  <TableColumn fx:id="colTipo" />
+                  <TableColumn fx:id="colValor" />
+               </columns>
             </TableView>
          </children>
       </Pane>
+      <Button fx:id="btnActualizar" layoutX="249.0" layoutY="424.0" mnemonicParsing="false" onAction="#actualizar" prefHeight="38.0" prefWidth="103.0" text="Actualizar">
+         <font>
+            <Font name="Calibri" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

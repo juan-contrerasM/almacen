@@ -26,6 +26,7 @@ import java.util.ResourceBundle;
 
 public class ProductsController implements Initializable {
 
+
         //array donde vamos a guardar los productos
         private ArrayList<RefrigeratedProduct> listRefrigerateProducts=new ArrayList<RefrigeratedProduct>();
         private ArrayList<PackagedProduct>listPackagedProduc= new ArrayList<PackagedProduct>();
@@ -344,14 +345,18 @@ public class ProductsController implements Initializable {
 
 
 
-
         @FXML
         void lista(ActionEvent event) throws IOException {
+
+
+
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("consultProducts.fxml"));
                 Parent root = loader.load();
-                ConsultProductsController controllerDataBase= new ConsultProductsController(listRefrigerateProducts,listPackagedProduc,perishableProductList);
                 ConsultProductsController controller = loader.getController();
-                controller.setStage(stage); // Pasar la referencia del Stage actual a la nueva ventana
+
+                controller.setStage(stage);// Pasar la referencia del Stage actual a la nueva ventana
+                controller.setPerishableProductList(perishableProductList);
+
                 Scene scene = new Scene(root);
                 stage.setScene(scene);
                 stage.show();
@@ -425,6 +430,13 @@ public class ProductsController implements Initializable {
                 JOptionPane.showMessageDialog(null,"ahora cree rellene los espacios disponibles y uncale en crear");
                 disableTextfields();
 
+        }
+        public ArrayList<PerishableProduct> getPerishableProductList() {
+                return perishableProductList;
+        }
+
+        public void setPerishableProductList(ArrayList<PerishableProduct> perishableProductList) {
+                this.perishableProductList = perishableProductList;
         }
 
 }

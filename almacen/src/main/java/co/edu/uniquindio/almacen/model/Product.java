@@ -1,6 +1,6 @@
 package co.edu.uniquindio.almacen.model;
 
-public  abstract class  Product {
+public   class  Product {
 
     /*
         significados:
@@ -51,13 +51,7 @@ public  abstract class  Product {
         this.name = name;
     }
 
-    public String getDescription() {
-        return description;
-    }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
 
     public double getUnitValue() {
         return unitValue;
@@ -74,9 +68,18 @@ public  abstract class  Product {
     public void setAmount(int amount) {
         this.amount = amount;
     }
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public String getTipo() {
         return tipo;
     }
+
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
