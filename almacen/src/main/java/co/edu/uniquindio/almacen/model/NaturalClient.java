@@ -40,4 +40,17 @@ public class NaturalClient extends Client {
         this.birthDate = birthDate;
     }
 
+    @Override
+    public String toString() {
+        return "NaturalClient{" +
+                "email='" + email + '\'' +
+                ", birthDate='" + birthDate + '\'' +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", id='" + id + '\'' +
+                ", address='" + address + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", typeClient='" + typeClient + '\'' +
+                '}';
+    }
 }

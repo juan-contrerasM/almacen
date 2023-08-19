@@ -80,8 +80,7 @@ public class ClientController implements Initializable {
         @FXML
         private TextField txtCumpleanos;
 
-        @FXML
-        private TextField txtEmail;
+
 
         @FXML
         private TextField txtIdentificacion;
@@ -130,6 +129,7 @@ public class ClientController implements Initializable {
                                 txtTelefono.setText(naturalClient.getPhoneNumber());
                                 txtCorreo.setText((naturalClient.getEmail()));
                                 txtCumpleanos.setText(naturalClient.getBirthDate());
+                                comboCliente.setValue(naturalClient.getTypeClient());
 
                                 disableTextfields();
                         }
@@ -144,6 +144,7 @@ public class ClientController implements Initializable {
                                 txtDireccion.setText(legalClient.getAddress());
                                 txtTelefono.setText(legalClient.getPhoneNumber());
                                 txtNumeroNit.setText(legalClient.getNitNumber());
+                                comboCliente.setValue(legalClient.getTypeClient());
                                 disableTextfields();
 
                         }
@@ -158,13 +159,13 @@ public class ClientController implements Initializable {
 
         @FXML
         void create(ActionEvent event) {
-
                 //obteniendo la informacion atributos globales
                 String nombre=txtNombre.getText();
                 String apellido =txtApellido.getText();
                 String identificacion =txtIdentificacion.getText();
                 String direccion = txtDireccion.getText();
                 String telefono =txtTelefono.getText();
+                String tipo =  comboCliente.getSelectionModel().getSelectedItem();
                // String tipoClase =(String)  comboCliente.getSelectionModel().getSelectedItem();
 
                 //valida que no haya campos vacios y que haya un  tipo en el combo box seleccionado
@@ -175,7 +176,8 @@ public class ClientController implements Initializable {
 
                         NaturalClient naturalClient = new NaturalClient();
 
-                        String correo =txtEmail.getText();
+                        String correo =txtCorreo.getText();
+                        System.out.println(correo);
                         String cumpleanos =txtCumpleanos.getText();
 
 
@@ -187,7 +189,7 @@ public class ClientController implements Initializable {
                         naturalClient.setPhoneNumber(txtTelefono.getText());
                         naturalClient.setEmail(txtCorreo.getText());
                         naturalClient.setBirthDate(txtCumpleanos.getText());
-                        naturalClient.setTypeClient(comboCliente.getAccessibleText());
+                       naturalClient.setTypeClient(tipo);
 
 
                         listNaturalClients.add(naturalClient);
@@ -200,7 +202,7 @@ public class ClientController implements Initializable {
 
 
 
-                } else if (comboCliente.getValue().equals("juridica")) {
+                } else if (comboCliente.getValue().equals("juridico")) {
 
 
                         //se setean los atributos y se intancia un tipo de ese producto
@@ -215,6 +217,7 @@ public class ClientController implements Initializable {
                         legalClient.setPhoneNumber(txtTelefono.getText());
                         legalClient.setNitNumber(txtNumeroNit.getText());
                         legalClient.setTypeClient(comboCliente.getAccessibleText());
+                        legalClient.setTypeClient(tipo);
 
                         System.out.println(legalClient);
 
@@ -336,9 +339,11 @@ public class ClientController implements Initializable {
                         if (comboCliente.getValue().equals("natural")) {
                                 txtNumeroNit.setDisable(true);
 
+                                System.out.println(comboCliente.getValue());
                         } else if (comboCliente.getValue().equals("juridico")) {
                                 txtCorreo.setDisable(true);
                                 txtCumpleanos.setDisable(true);
+                                System.out.println(comboCliente.getValue());
 
                         } else {
                                 JOptionPane.showMessageDialog(null, "seleccione el tipo de producto");

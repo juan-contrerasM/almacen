@@ -28,4 +28,17 @@ public class LegalClient extends Client {
     public void setNitNumber(String nitNumber) {
         this.nitNumber = nitNumber;
     }
+
+    @Override
+    public String toString() {
+        return "LegalClient{" +
+                "nitNumber='" + nitNumber + '\'' +
+                ", name='" + name + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", id='" + id + '\'' +
+                ", address='" + address + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", typeClient='" + typeClient + '\'' +
+                '}';
+    }
 }
