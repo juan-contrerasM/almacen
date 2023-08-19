@@ -13,11 +13,13 @@ public class NaturalClient extends Client {
      */
 
     private String email;
-    private LocalDate birthDate;
+    private String birthDate;
 
+    public NaturalClient() {
+    }
 
-    public NaturalClient(String name,String lastName, String id,String address,String phoneNumber,String email, LocalDate birthDate) {
-       super(name,lastName,id,address,phoneNumber);
+    public NaturalClient(String name, String lastName, String id, String address, String phoneNumber, String email, String birthDate, String typeClient) {
+       super(name,lastName,id,address,phoneNumber,typeClient);
         this.email = email;
         this.birthDate=birthDate;
     }
@@ -30,11 +32,11 @@ public class NaturalClient extends Client {
         this.email = email;
     }
 
-    public LocalDate getBirthDate() {
+    public String getBirthDate() {
         return birthDate;
     }
 
-    public void setBirthDate(LocalDate birthDate) {
+    public void setBirthDate(String birthDate) {
         this.birthDate = birthDate;
     }
 

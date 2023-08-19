@@ -49,6 +49,14 @@ public class MenuController  implements Initializable {
 
     @FXML
     void openClients(ActionEvent event) throws IOException {
+        JOptionPane.showMessageDialog(null, "Cargando");
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("Client.fxml"));
+        Parent root= loader.load();
+        ClientController controller= loader.getController();
+        controller.setStage(stage); // Pasar la referencia del Stage actual a la nueva ventana
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
 
 
     }

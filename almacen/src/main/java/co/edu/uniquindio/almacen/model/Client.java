@@ -19,13 +19,19 @@ phonenumber=numero de telefono
     protected String address;
     protected String phoneNumber;
 
+    protected  String typeClient;
 
-    public Client(String name,String lastName, String id,String address,String phoneNumber){
+
+    public Client() {
+    }
+
+    public Client(String name, String lastName, String id, String address, String phoneNumber, String typeClient){
         this.name = name;
         this.lastName = lastName;
         this.id = id;
         this.address = address;
         this.phoneNumber = phoneNumber;
+        this.typeClient = typeClient;
     }
 
     public String getName() {
@@ -66,5 +72,13 @@ phonenumber=numero de telefono
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getTypeClient() {
+        return typeClient;
+    }
+
+    public void setTypeClient(String typeClient) {
+        this.typeClient = typeClient;
     }
 }

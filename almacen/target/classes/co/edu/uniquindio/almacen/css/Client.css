@@ -1,0 +1,33 @@
+#textIdentificacion, #txtCumpleanos,
+#txtNumeroNit, #txtNombre,  #txtTelefono ,#txtIdentificacion,
+#txtTemperature, #txtCorreo, #txtOrigin, #txtApellido, #txtDireccion{
+    -fx-background-color:#59D1FE;
+    -fx-background-insets: 0 0 5 5;
+    -fx-border-color:#59D1FE;
+    -fx-border-radius: 10px 10px 10px 10px;
+    -fx-text-inner-color:black;
+    -fx-prompt-text-fill:#fff;
+
+}
+
+#paneBorder, #contenedor2, #paneBorder3, #paneBorder4,#contenedor{
+    -fx-border-color:#3CA3CA;
+    -fx-border-radius: 10px 10px 10px 10px;
+    -fx-border-width: 5px;
+}
+.button{
+    -fx-border-radius: 50px 30px 50px 30px;
+    -fx-background-color:linear-gradient(#59D1FE, #3CA3CA);
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-border-style: solid;
+    -fx-cursor:hand;
+
+}
+.button:hover{
+    -fx-background-color: #FFFF;
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-border-style: solid;
+}
+
