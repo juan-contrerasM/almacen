@@ -4,7 +4,6 @@ import co.edu.uniquindio.almacen.model.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -15,9 +14,7 @@ import javafx.stage.Stage;
 
 import javax.swing.*;
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
-import java.util.ResourceBundle;
 
 public class MenuController  {
     //sirve parar abrir ventana
@@ -109,20 +106,15 @@ public class MenuController  {
 
     @FXML
     void openSales(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("saleDetail.fxml"));
-        Parent root = loader.load();
-        SaleDetailController controller = loader.getController();
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("sail.fxml"));
+        Parent root= loader.load();
+        SailController controller= loader.getController();
         controller.setStage(stage); // Pasar la referencia del Stage actual a la nueva ventana
-        controller.setInventary(inventary);
-        controller.setInventaryC(inventaryC);
-        controller.setListRefrigerateProducts(listRefrigerateProducts);
-        controller.setListPackagedProduc(listPackagedProduc);
-        controller.setPerishableProductList(perishableProductList);
-        controller.setListLegalClient(listLegalClient);
-        controller.setListNaturalClients(listNaturalClients);
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
+
+
 
 
     }
