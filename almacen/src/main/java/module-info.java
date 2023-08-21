@@ -7,5 +7,7 @@ module co.edu.uniquindio.almacen.almacen {
 
     opens co.edu.uniquindio.almacen to javafx.fxml;
     exports co.edu.uniquindio.almacen;
+    opens co.edu.uniquindio.almacen.model to javafx.base;
+
 
 }

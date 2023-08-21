@@ -1,6 +1,8 @@
 package co.edu.uniquindio.almacen;
 
 import co.edu.uniquindio.almacen.model.*;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -25,13 +28,13 @@ public class SailController {
     private Button btnMenu;
 
     @FXML
-    private TableColumn<?, ?> columnaDos;
+    private TableColumn<Product, String> columnaDos;
 
     @FXML
-    private TableColumn<?, ?> columnaTres;
+    private TableColumn<Product, String> columnaTres;
 
     @FXML
-    private TableColumn<?, ?> columnaUno;
+    private TableColumn<Product, String> columnaUno;
 
     @FXML
     private Pane paneBody;
@@ -40,15 +43,23 @@ public class SailController {
     private Pane paneHead;
 
     @FXML
-    private TableView<?> tabla;
+    private TableView<Product> tabla;
 
     @FXML
     private Label titleSaleDetail;
 
     @FXML
-    void actualizar(ActionEvent event) {
+    void Actualizar(ActionEvent event) {
+        System.out.println("hola");
         llenarArraylist();
         imprimir();
+        ObservableList<Product> totalProduct2 = FXCollections.observableArrayList();
+        totalProduct2.addAll(totalProduct);
+        columnaUno.setCellValueFactory(new PropertyValueFactory<Product, String>("name"));
+        columnaDos.setCellValueFactory(new PropertyValueFactory<Product, String>("amount"));
+        columnaTres.setCellValueFactory(new PropertyValueFactory<Product, String>("unitValue"));
+        tabla.setItems(totalProduct2);
+       // initialize();
     }
 
 
@@ -64,11 +75,24 @@ public class SailController {
     private ArrayList<String> inventaryC = new ArrayList<>();
     private ArrayList<Product> totalProduct = new ArrayList<>();
 
-    public void llenarArraylist(){
-            totalProduct.addAll(perishableProductList);
-            totalProduct.addAll(listPackagedProduc);
-            totalProduct.addAll(listRefrigerateProducts);
+    public void llenarArraylist() {
+        totalProduct.addAll(perishableProductList);
+        totalProduct.addAll(listPackagedProduc);
+        totalProduct.addAll(listRefrigerateProducts);
     }
+
+
+   /*public void initialize(){
+        ObservableList<Product> totalProduct2 = FXCollections.observableArrayList();
+        totalProduct2.addAll(totalProduct);
+        columnaUno.setCellValueFactory(new PropertyValueFactory<Product, String>(totalProduct2.get(0).getName()));
+        columnaDos.setCellValueFactory(new PropertyValueFactory<Product, String>(String.valueOf(totalProduct2.get(0).getAmount())));
+        columnaTres.setCellValueFactory(new PropertyValueFactory<Product, String>(String.valueOf(totalProduct2.get(0).getUnitValue())));
+        tabla.setItems(totalProduct2);
+
+    }*/
+
+
     public void imprimir(){
         System.out.println("hola");
         for (int i = 0; totalProduct.size() > i; i++) {
@@ -88,15 +112,15 @@ public class SailController {
         this.btnMenu = btnMenu;
     }
 
-    public void setColumnaDos(TableColumn<?, ?> columnaDos) {
+    public void setColumnaDos(TableColumn<Product, String> columnaDos) {
         this.columnaDos = columnaDos;
     }
 
-    public void setColumnaTres(TableColumn<?, ?> columnaTres) {
+    public void setColumnaTres(TableColumn<Product, String> columnaTres) {
         this.columnaTres = columnaTres;
     }
 
-    public void setColumnaUno(TableColumn<?, ?> columnaUno) {
+    public void setColumnaUno(TableColumn<Product, String> columnaUno) {
         this.columnaUno = columnaUno;
     }
 
@@ -108,8 +132,16 @@ public class SailController {
         this.paneHead = paneHead;
     }
 
-    public void setTabla(TableView<?> tabla) {
+    public void setBtnActualizar(Button btnActualizar) {
+        this.btnActualizar = btnActualizar;
+    }
+
+    public void setTabla(TableView<Product> tabla) {
         this.tabla = tabla;
+    }
+
+    public void setTotalProduct(ArrayList<Product> totalProduct) {
+        this.totalProduct = totalProduct;
     }
 
     public void setTitleSaleDetail(Label titleSaleDetail) {
@@ -148,6 +180,7 @@ public class SailController {
         this.inventaryC = inventaryC;
     }
 
+
     @FXML
     void openMenu(ActionEvent event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("menu.fxml"));
@@ -171,4 +204,75 @@ public class SailController {
 
     }
 
+    public Button getBtnActualizar() {
+        return btnActualizar;
+    }
+
+    public Button getBtnMenu() {
+        return btnMenu;
+    }
+
+    public TableColumn<?, ?> getColumnaDos() {
+        return columnaDos;
+    }
+
+    public TableColumn<?, ?> getColumnaTres() {
+        return columnaTres;
+    }
+
+    public TableColumn<?, ?> getColumnaUno() {
+        return columnaUno;
+    }
+
+    public Pane getPaneBody() {
+        return paneBody;
+    }
+
+    public Pane getPaneHead() {
+        return paneHead;
+    }
+
+    public TableView<?> getTabla() {
+        return tabla;
+    }
+
+    public Label getTitleSaleDetail() {
+        return titleSaleDetail;
+    }
+
+    public Stage getStage() {
+        return stage;
+    }
+
+    public ArrayList<RefrigeratedProduct> getListRefrigerateProducts() {
+        return listRefrigerateProducts;
+    }
+
+    public ArrayList<PackagedProduct> getListPackagedProduc() {
+        return listPackagedProduc;
+    }
+
+    public ArrayList<PerishableProduct> getPerishableProductList() {
+        return perishableProductList;
+    }
+
+    public ArrayList<String> getInventary() {
+        return inventary;
+    }
+
+    public ArrayList<NaturalClient> getListNaturalClients() {
+        return listNaturalClients;
+    }
+
+    public ArrayList<LegalClient> getListLegalClient() {
+        return listLegalClient;
+    }
+
+    public ArrayList<String> getInventaryC() {
+        return inventaryC;
+    }
+
+    public ArrayList<Product> getTotalProduct() {
+        return totalProduct;
+    }
 }
