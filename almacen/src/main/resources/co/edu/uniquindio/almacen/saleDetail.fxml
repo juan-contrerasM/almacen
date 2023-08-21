@@ -1,14 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="co.edu.uniquindio.almacen.SaleDetail"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.almacen.SaleDetail">
+   <children>
+      <SplitPane dividerPositions="0.18592964824120603" layoutX="33.0" layoutY="60.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Pane fx:id="paneHead" layoutX="118.0" layoutY="-64.0" prefHeight="71.0" prefWidth="598.0" stylesheets="@css/saleDetail.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <Button fx:id="btnVenta" layoutX="103.0" layoutY="21.0" mnemonicParsing="false" stylesheets="@css/saleDetail.css" text="venta" />
+                        <Button fx:id="btnMenu" layoutX="434.0" layoutY="22.0" mnemonicParsing="false" stylesheets="@css/saleDetail.css" text="Menu" />
+                        <Label fx:id="titleSaleDetail" layoutX="200.0" layoutY="20.0" text="Detalle de la venta">
+                           <font>
+                              <Font name="System Bold Italic" size="22.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="48.0" fitWidth="80.0" layoutX="21.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@imagenes/logoAlmacen.png" />
+                           </image>
+                        </ImageView>
+                        <ImageView fitHeight="48.0" fitWidth="80.0" layoutX="529.0" layoutY="9.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@imagenes/logoAlmacen.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+               <children>
+                  <Pane fx:id="paneBody" layoutX="46.0" layoutY="14.0" prefHeight="321.0" prefWidth="598.0" stylesheets="@css/saleDetail.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                     <children>
+                        <TableView fx:id="tabla" layoutX="33.0" layoutY="37.0" prefHeight="249.0" prefWidth="527.0" stylesheets="@css/saleDetail.css">
+                          <columns>
+                            <TableColumn fx:id="columnaUno" prefWidth="241.0" text="Producto" />
+                            <TableColumn fx:id="columnaDos" prefWidth="138.0" text="Cantidad" />
+                              <TableColumn fx:id="columnaTres" prefWidth="147.0" text="Valor" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+   </children>
 </AnchorPane>
