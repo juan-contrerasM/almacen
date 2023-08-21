@@ -7,6 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -25,7 +26,23 @@ public class SaleController {
 
     @FXML
     private Button btnMenu;
+    @FXML
+    private Button btnSaleDetail;
+    private Stage stage1;
 
+
+    @FXML
+    void openSaleDetail(ActionEvent event) throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("saleDetail.fxml"));
+        Parent root = loader.load();
+        SaleDetailController controller = loader.getController();
+        controller.setStage(stage); // Pasar la referencia del Stage actual a la nueva ventana
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        // Cierra el stage actual al regresar al menú
+        ((Stage) btnSaleDetail.getScene().getWindow()).close();
+    }
     @FXML
     void openMenu(ActionEvent  event) throws IOException {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("menu.fxml"));
@@ -99,6 +116,10 @@ public class SaleController {
         this.inventaryC = inventaryC;
     }
 }
+
+
+
+
 
 
 

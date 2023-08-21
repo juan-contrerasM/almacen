@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.almacen.SaleDetail">
+<fx:root prefHeight="400.0" prefWidth="600.0" type="AnchorPane" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.almacen.SaleController">
    <children>
       <SplitPane dividerPositions="0.18592964824120603" layoutX="33.0" layoutY="60.0" orientation="VERTICAL" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
         <items>
@@ -20,8 +20,8 @@
                <children>
                   <Pane fx:id="paneHead" layoutX="118.0" layoutY="-64.0" prefHeight="71.0" prefWidth="598.0" stylesheets="@css/saleDetail.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Button fx:id="btnVenta" layoutX="103.0" layoutY="21.0" mnemonicParsing="false" stylesheets="@css/saleDetail.css" text="venta" />
-                        <Button fx:id="btnMenu" layoutX="434.0" layoutY="22.0" mnemonicParsing="false" stylesheets="@css/saleDetail.css" text="Menu" />
+                        <Button fx:id="btnVenta" layoutX="103.0" layoutY="21.0" mnemonicParsing="false" onAction="#openSale" stylesheets="@css/saleDetail.css" text="venta" />
+                        <Button fx:id="btnMenu" layoutX="434.0" layoutY="22.0" mnemonicParsing="false" onAction="#openMenu" stylesheets="@css/saleDetail.css" text="Menu" />
                         <Label fx:id="titleSaleDetail" layoutX="200.0" layoutY="20.0" text="Detalle de la venta">
                            <font>
                               <Font name="System Bold Italic" size="22.0" />
@@ -59,4 +59,4 @@
         </items>
       </SplitPane>
    </children>
-</AnchorPane>
+</fx:root>
