@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -32,16 +33,22 @@ public class SaleController {
 
 
     @FXML
-    void openSaleDetail(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("saleDetail.fxml"));
-        Parent root = loader.load();
-        SaleDetailController controller = loader.getController();
+    void openSaleDetail(ActionEvent event)throws IOException {
+        JOptionPane.showMessageDialog(null, "Cargando");
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("saleDetail.fxml"));
+        Parent root= loader.load();
+        SaleDetailController controller= loader.getController();
+        controller.setInventary(inventary);
+        controller.setInventaryc(inventaryC);
+        controller.setListRefrigerateProducts(listRefrigerateProducts);
+        controller.setListPackagedProduc(listPackagedProduc);
+        controller.setPerishableProductList(perishableProductList);
+        controller.setListLegalClient(listLegalClient);
+        controller.setListNaturalClients(listNaturalClients);
         controller.setStage(stage); // Pasar la referencia del Stage actual a la nueva ventana
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-        // Cierra el stage actual al regresar al menú
-        ((Stage) btnSaleDetail.getScene().getWindow()).close();
     }
     @FXML
     void openMenu(ActionEvent  event) throws IOException {

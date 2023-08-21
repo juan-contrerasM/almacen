@@ -17,6 +17,69 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class SaleDetailController {
+    public void setListNaturalClients(ArrayList<NaturalClient> listNaturalClients) {
+        this.listNaturalClients = listNaturalClients;
+    }
+
+    public void setListLegalClient(ArrayList<LegalClient> listLegalClient) {
+        this.listLegalClient = listLegalClient;
+    }
+
+    public void setInventaryC(ArrayList<String> inventaryC) {
+        this.inventaryC = inventaryC;
+    }
+
+    public void setBtnMenu(Button btnMenu) {
+        this.btnMenu = btnMenu;
+    }
+
+    public void setBtnVenta(Button btnVenta) {
+        this.btnVenta = btnVenta;
+    }
+
+    public void setColumnaDos(TableColumn<?, ?> columnaDos) {
+        this.columnaDos = columnaDos;
+    }
+
+    public void setColumnaTres(TableColumn<?, ?> columnaTres) {
+        this.columnaTres = columnaTres;
+    }
+
+    public void setColumnaUno(TableColumn<?, ?> columnaUno) {
+        this.columnaUno = columnaUno;
+    }
+
+    public void setPaneBody(Pane paneBody) {
+        this.paneBody = paneBody;
+    }
+
+    public void setPaneHead(Pane paneHead) {
+        this.paneHead = paneHead;
+    }
+
+    public void setTabla(TableView<?> tabla) {
+        this.tabla = tabla;
+    }
+
+    public void setTitleSaleDetail(Label titleSaleDetail) {
+        this.titleSaleDetail = titleSaleDetail;
+    }
+
+    public void setListRefrigerateProducts(ArrayList<RefrigeratedProduct> listRefrigerateProducts) {
+        this.listRefrigerateProducts = listRefrigerateProducts;
+    }
+
+    public void setListPackagedProduc(ArrayList<PackagedProduct> listPackagedProduc) {
+        this.listPackagedProduc = listPackagedProduc;
+    }
+
+    public void setPerishableProductList(ArrayList<PerishableProduct> perishableProductList) {
+        this.perishableProductList = perishableProductList;
+    }
+
+    public void setInventary(ArrayList<String> inventary) {
+        this.inventary = inventary;
+    }
 
     @FXML
     private Button btnMenu;
@@ -98,5 +161,9 @@ public class SaleDetailController {
 
 
     public void setStage(Stage stage) {
+    }
+
+    public void setInventaryc(ArrayList<String> inventaryC) {
+        this.inventaryC=inventaryC;
     }
 }
