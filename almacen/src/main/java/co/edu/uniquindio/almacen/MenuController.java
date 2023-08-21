@@ -110,6 +110,13 @@ public class MenuController  {
         FXMLLoader loader= new FXMLLoader(getClass().getResource("sail.fxml"));
         Parent root= loader.load();
         SailController controller= loader.getController();
+        controller.setInventary(inventary);
+        controller.setInventaryC(inventaryC);
+        controller.setListRefrigerateProducts(listRefrigerateProducts);
+        controller.setListPackagedProduc(listPackagedProduc);
+        controller.setPerishableProductList(perishableProductList);
+        controller.setListLegalClient(listLegalClient);
+        controller.setListNaturalClients(listNaturalClients);
         controller.setStage(stage); // Pasar la referencia del Stage actual a la nueva ventana
         Scene scene = new Scene(root);
         stage.setScene(scene);

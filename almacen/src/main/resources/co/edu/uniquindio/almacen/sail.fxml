@@ -20,7 +20,7 @@
                     <children>
                         <Pane fx:id="paneHead" layoutX="118.0" layoutY="-64.0" prefHeight="71.0" prefWidth="598.0" stylesheets="@css/saleDetail.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                             <children>
-                                <Button fx:id="btnActualizar" layoutX="103.0" layoutY="21.0" mnemonicParsing="false" onAction="#actualizar" stylesheets="@css/saleDetail.css" text="Actualizar" />
+                                <Button fx:id="btnActualizar" layoutX="103.0" layoutY="21.0" mnemonicParsing="false" onAction="#Actualizar" stylesheets="@css/saleDetail.css" text="Actualizar" />
                                 <Button fx:id="btnMenu" layoutX="434.0" layoutY="22.0" mnemonicParsing="false" onAction="#openMenu" stylesheets="@css/saleDetail.css" text="Menu" />
                                 <Label fx:id="titleSaleDetail" layoutX="200.0" layoutY="20.0" text="Detalle de la venta">
                                     <font>
