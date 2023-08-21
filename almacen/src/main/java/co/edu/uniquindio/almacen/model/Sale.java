@@ -18,13 +18,13 @@ public class Sale {
       */
 
     private String code;
-    private LocalDate date;
+    private String date;
     private ArrayList<SaleDetail> saleDetail = new ArrayList();
     private Client client;
     private double total;
     private double iva;
 
-    public Sale(String code,LocalDate date,SaleDetail saleDetail, Client client,double total,double iva){
+    public Sale(String code,String date,SaleDetail saleDetail, Client client,double total,double iva){
         this.code= code;
         this.date = date;
         //falta almacenar el detalle venta
@@ -42,11 +42,11 @@ public class Sale {
         this.code = code;
     }
 
-    public LocalDate getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(String date) {
         this.date = date;
     }
 

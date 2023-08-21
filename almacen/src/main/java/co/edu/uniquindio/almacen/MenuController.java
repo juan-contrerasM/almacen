@@ -59,7 +59,7 @@ public class MenuController  {
  // abre ventana clientes
     @FXML
     void openClients(ActionEvent event) throws IOException {
-        JOptionPane.showMessageDialog(null, "Cargando");
+        JOptionPane.showMessageDialog(null, "Primero selecion el tipo de cliente y luego le unde en el botn cargar");
         FXMLLoader loader= new FXMLLoader(getClass().getResource("Client.fxml"));
         Parent root= loader.load();
         ClientController controller= loader.getController();

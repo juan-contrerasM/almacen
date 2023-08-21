@@ -199,7 +199,7 @@ public class ClientController implements Initializable {
 
 
 
-                        JOptionPane.showMessageDialog(null, "Se ha guardado el producto");
+                        JOptionPane.showMessageDialog(null, "Se ha guardado el cliente");
                         //llama una funcion para limpiar los labels
                         cleanSpeaces();
                         //llama una funcion para activar los labels
@@ -226,7 +226,7 @@ public class ClientController implements Initializable {
                         System.out.println(legalClient);
 
                         listLegalClient.add(legalClient);
-                        JOptionPane.showMessageDialog(null, "Se ha guardado el producto");
+                        JOptionPane.showMessageDialog(null, "Se ha guardado el cliente");
                         cleanSpeaces();
                         enableTextfields();
 
@@ -345,7 +345,7 @@ public class ClientController implements Initializable {
                                 System.out.println(comboCliente.getValue());
 
                         } else {
-                                JOptionPane.showMessageDialog(null, "seleccione el tipo de producto");
+                                JOptionPane.showMessageDialog(null, "seleccione el tipo de cliente");
                         }
 
                 }
@@ -359,7 +359,7 @@ public class ClientController implements Initializable {
 // este funcion sirve para que cuando le undan el boton cargar sepan que lbl deben llenar y se deshabiliten lo que no pueden llenar
         @FXML
         void loadingS(ActionEvent event) {
-                JOptionPane.showMessageDialog(null, "ahora cree rellene los espacios disponibles y uncale en crear");
+                JOptionPane.showMessageDialog(null, "ahora cree rellene los espacios disponibles y undale en crear");
                 disableTextfields();
                 loadingInventary();
 
