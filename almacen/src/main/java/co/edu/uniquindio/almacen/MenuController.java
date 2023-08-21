@@ -59,12 +59,6 @@ public class MenuController  {
  // abre ventana clientes
     @FXML
     void openClients(ActionEvent event) throws IOException {
-        String info="";
-        System.out.println("hola");
-        for (String dato:inventaryC ) {
-            info += " producto: " + dato + "  \n";
-            System.out.println(info + " se esta mostrasndo desde menucontrooler client( menu)");
-        }
         JOptionPane.showMessageDialog(null, "Cargando");
         FXMLLoader loader= new FXMLLoader(getClass().getResource("Client.fxml"));
         Parent root= loader.load();
@@ -86,13 +80,6 @@ public class MenuController  {
 //abre venta productos
     @FXML
     void openProducts(ActionEvent event) throws IOException {
-
-        String info="";
-        System.out.println("hola");
-        for (String dato:inventary ) {
-            info += " producto: " + dato + "  \n";
-            System.out.println(info + " se esta mostrasndo desde menucontrooler ( menu)");
-        }
         JOptionPane.showMessageDialog(null, "primero seleccionar el tipo de producto y undir en el boton cargar");
         FXMLLoader loader= new FXMLLoader(getClass().getResource("products.fxml"));
         Parent root= loader.load();

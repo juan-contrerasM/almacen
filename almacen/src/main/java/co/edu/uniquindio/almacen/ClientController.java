@@ -25,7 +25,7 @@ import java.util.ResourceBundle;
 
 public class ClientController implements Initializable {
 
-
+        // atributo fxml
         @FXML
         private Label lblInvetario;
         @FXML
@@ -105,7 +105,7 @@ public class ClientController implements Initializable {
         // funciones de acciones
 
 
-        //array donde vamos a guardar los productos
+        //array donde vamos a guardar la informacion
         private ArrayList<RefrigeratedProduct> listRefrigerateProducts=new ArrayList<RefrigeratedProduct>();
         private ArrayList<PackagedProduct>listPackagedProduc= new ArrayList<PackagedProduct>();
         private ArrayList<PerishableProduct>perishableProductList= new ArrayList<PerishableProduct>();
@@ -118,11 +118,12 @@ public class ClientController implements Initializable {
         private MenuController menuController;
         private Stage stage;
 
-
+        // Esta funcion lo que hace es que de acuero al tipo selecionado por el combobox, va y lo busca en los 3 arraylist y cuando lo encutra lo carga en los arraylist
         @FXML
         void consult(ActionEvent event) {
+                //nombre para buscar porducto
                 String nameConsult = txtNameConsult.getText();
-
+                //recore una lista de producto tipo envasados y busca si hay alguno con el nombre a buscar y llena los campos de la vista
                 for (NaturalClient naturalClient : listNaturalClients) {
                         if (nameConsult.equals(naturalClient.getName())) {
                                 txtNombre.setText(naturalClient.getName());
@@ -133,7 +134,7 @@ public class ClientController implements Initializable {
                                 txtCorreo.setText((naturalClient.getEmail()));
                                 txtCumpleanos.setText(naturalClient.getBirthDate());
                                 comboCliente.setValue(naturalClient.getTypeClient());
-
+                        //funcion para desahbilitar campos que no le corresponden llenar cuando vana crear este tipo de objetos
                                 disableTextfields();
                         }
                 }
@@ -156,7 +157,7 @@ public class ClientController implements Initializable {
 
 
         }
-
+        // Esta funcion perimite guardar la informacion que escibieron en los labels y lo almacena de acuerdo el tipo producto que seleccionaron
         @FXML
         void create(ActionEvent event) {
                 //obteniendo la informacion atributos globales
@@ -172,10 +173,12 @@ public class ClientController implements Initializable {
                 if (comboCliente.getValue() == null || (txtNombre.getText().isEmpty() || txtApellido.getText().isEmpty() || txtIdentificacion.getText().isEmpty() || txtDireccion.getText().isEmpty() || txtTelefono.getText().isEmpty())) {
                         JOptionPane.showMessageDialog(null, " Hay campos sin completar, es obligatiorio seleccionar el tipo");
 
+                        //aca se valida el tipo de dato para guardar la informacion de acuerdo acada dato
                 } else if (comboCliente.getValue().equals("natural")) {
-
+                        //se hace convercion aca para evitar la excepcion por conversion de dato
                         NaturalClient naturalClient = new NaturalClient();
 
+                        //atributos unicos del objeto
                         String correo = txtCorreo.getText();
                         System.out.println(correo);
                         String cumpleanos = txtCumpleanos.getText();
@@ -191,13 +194,15 @@ public class ClientController implements Initializable {
                         naturalClient.setBirthDate(txtCumpleanos.getText());
                         naturalClient.setTypeClient(tipo);
 
-
+                        //se agrega a una lista la intancia creada
                         listNaturalClients.add(naturalClient);
 
 
-                        System.out.println(naturalClient);
+
                         JOptionPane.showMessageDialog(null, "Se ha guardado el producto");
+                        //llama una funcion para limpiar los labels
                         cleanSpeaces();
+                        //llama una funcion para activar los labels
                         enableTextfields();
 
 
@@ -226,21 +231,24 @@ public class ClientController implements Initializable {
                         enableTextfields();
 
                 }
+                // se llamo la funcion  para agregar al inventario
                 addInventary(nombre);
 
         }
 
-
+        // esta funcion llama a otra funcion para limpiar los labels
         @FXML
         void clean(ActionEvent event) {
 
                 cleanSpeaces();
         }
 
-
+        //Esta funcion elimina el producto que consulte, por eso se captura un label que es el que contiene el nombre
         @FXML
         void delete(ActionEvent event) {
+                //variable obtenida por lbl
                 String name = txtNameConsult.getText();
+                // recorre un for de tipo de producto y lo compara con el enviado y si lo encuentra lo elimina de la lista
                 for (int i = 0; i < listNaturalClients.size(); i++) {
                         if (listNaturalClients.get(i).getName().equals(name)) {
                                 listNaturalClients.remove(i);
@@ -259,18 +267,9 @@ public class ClientController implements Initializable {
 
 
         }
-
+        //abre la ventana menu
         @FXML
         void openManu(ActionEvent event) throws IOException {
-
-                String info="";
-                System.out.println(" aparace desde el controole client");
-                for (String dato:inventaryC ) {
-                        info+=" producto: "+ dato+"  \n";
-                        System.out.println(info);
-
-
-                }
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("menu.fxml"));
                 Parent root = loader.load();
                 MenuController controller = loader.getController();
@@ -290,6 +289,9 @@ public class ClientController implements Initializable {
 
         }
 
+        // esta funcion lo que hace es actulizar los datos, pero lo hace  de esta forma: primera llama la funcion creat para
+        // que crre un objeto con los lbl qu estan llenos, porque el  cliente primero debe consultar si el producto si fue creado
+        // cuando le und el boton se cra automaticamente y se elimina el anterior
 
         @FXML
         void update(ActionEvent event) {
@@ -306,7 +308,7 @@ public class ClientController implements Initializable {
                 this.stage = stage;
         }
 
-
+        //aca se llenan los combobox y se envian advertencias
         @Override
         public void initialize(URL url, ResourceBundle resourceBundle) {
 
@@ -314,7 +316,7 @@ public class ClientController implements Initializable {
 
 
         }
-
+        // esta funcion limpia los lbls seteando espacion vacios a ellos mismos
         public void cleanSpeaces() {
                 txtNombre.setText("");
                 txtApellido.setText("");
@@ -324,13 +326,14 @@ public class ClientController implements Initializable {
                 txtCorreo.setText("");
                 txtNumeroNit.setText("");
                 txtCumpleanos.setText("");
-
+//llama la funcion para volver que todos los lbl esten activados
                 enableTextfields();
 
 
         }
-
+        // sirve para desactivar los lbl de acuerdo el tipo de producto
         public void disableTextfields() {
+                //verifica wue no este vacio el combobox
                 if (comboCliente.getValue() != null) {
                         if (comboCliente.getValue().equals("natural")) {
                                 txtNumeroNit.setDisable(true);
@@ -347,13 +350,13 @@ public class ClientController implements Initializable {
 
                 }
         }
-
+        //aca se habilitan todos los campos que se pueden deshabilitar
         public void enableTextfields() {
                 txtCorreo.setDisable(false);
                 txtCumpleanos.setDisable(false);
                 txtNumeroNit.setDisable(false);
         }
-
+// este funcion sirve para que cuando le undan el boton cargar sepan que lbl deben llenar y se deshabiliten lo que no pueden llenar
         @FXML
         void loadingS(ActionEvent event) {
                 JOptionPane.showMessageDialog(null, "ahora cree rellene los espacios disponibles y uncale en crear");
@@ -369,7 +372,7 @@ public class ClientController implements Initializable {
                 inventaryC.add(name);
 
                 for (String dato : inventaryC) {
-                        info += " producto: " + dato + "  \n";
+                        info += " cliente: " + dato + "  \n";
 
                 }
                 textAreaInventario.setText(info);
@@ -386,18 +389,18 @@ public class ClientController implements Initializable {
                         }
                 }
                 for (String dato:inventaryC) {
-                        info+=" producto: "+ dato+"  \n";
+                        info+=" cliente: "+ dato+"  \n";
 
                 }
                 textAreaInventario.setText(info);
 
         }
+       //aca carga el inventario cuando se sale de la venta y vuelve a ingresar
         public void  loadingInventary(){
                 String info="";
-                System.out.println("hola3");
+
                 for (String dato:inventaryC ) {
-                        info+=" producto: "+ dato+"  \n";
-                        System.out.println(info+"perra");
+                        info+=" cliente: "+ dato+"  \n";
 
 
                 }

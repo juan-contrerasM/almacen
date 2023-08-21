@@ -141,7 +141,7 @@ public class ProductsController implements Initializable {
         @FXML
         private Label lblDescription;
 
-        // funciones de acciones
+
 
 
 
@@ -371,13 +371,6 @@ public class ProductsController implements Initializable {
                         //abre la ventana menu
         @FXML
         void openManu(ActionEvent event) throws IOException {
-                String info="";
-                System.out.println("hola2");
-                for (String dato:inventary ) {
-                        info += " producto: " + dato + "  \n";
-                        System.out.println(info + " se esta mostrasndo desde products controoler (open menu)");
-                }
-
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("menu.fxml"));
                 Parent root = loader.load();
                 MenuController controller = loader.getController();
@@ -429,7 +422,7 @@ public class ProductsController implements Initializable {
         public void initialize(URL url, ResourceBundle resourceBundle) {
                 comboTipo.getItems().addAll("Perecederos", "Refrigerados", "Envasados");
                 comboOrigen.getItems().addAll("Colombia", "Chile", "Ecuador","Argentina", "Peru");
-               loadingInventary();
+
         }
         // esta funcion limpia los lbls seteando espacion vacios a ellos mismos
 
@@ -524,7 +517,7 @@ public class ProductsController implements Initializable {
                 txtAreaInventario.setText(info);
         }
 
-       //terminar
+        //aca carga el inventario cuando se sale de la venta y vuelve a ingresar
         public void  loadingInventary(){
                 String info="";
                 for (String dato:inventary ) {
