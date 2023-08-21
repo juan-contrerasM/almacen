@@ -371,11 +371,19 @@ public class ProductsController implements Initializable {
                         //abre la ventana menu
         @FXML
         void openManu(ActionEvent event) throws IOException {
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("menu.fxml"));
+                String info="";
+                System.out.println("hola2");
+                for (String dato:inventary ) {
+                        info += " producto: " + dato + "  \n";
+                        System.out.println(info + " se esta mostrasndo desde products controoler (open menu)");
+                }
+
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("menu.fxml"));
                 Parent root = loader.load();
                 MenuController controller = loader.getController();
                 controller.setStage(stage); // Pasar la referencia del Stage actual a la nueva ventanacontroller.setInventary(inventary);
                 controller.setInventaryC(inventaryC);
+                controller.setInventary(inventary);
                 controller.setListRefrigerateProducts(listRefrigerateProducts);
                 controller.setListPackagedProduc(listPackagedProduc);
                 controller.setPerishableProductList(perishableProductList);
@@ -386,6 +394,10 @@ public class ProductsController implements Initializable {
                 stage.show();
                 // Cierra el stage actual al regresar al menú
                 ((Stage) btnMenu.getScene().getWindow()).close();
+
+
+
+
 
         }
 
@@ -398,6 +410,8 @@ public class ProductsController implements Initializable {
                 create(event);
 
                 delete(event);
+
+                loadingInventary();
 
 
 
@@ -478,6 +492,7 @@ public class ProductsController implements Initializable {
                 JOptionPane.showMessageDialog(null,"Ahora  rellene los espacios disponibles");
 
                 disableTextfields();
+                loadingInventary();
 
         }
         // aca se agrega al inventario cuando se crea el objeto
@@ -485,11 +500,10 @@ public class ProductsController implements Initializable {
                 String info="";
                 //se agrega al arraylist
                 inventary.add(name);
+                for (String dato:inventary) {
+                        info+=" producto: "+ dato+"  \n";
 
-
-                        info+= " producto: "+ name+"  \n";
-
-
+                }
                 txtAreaInventario.setText(info);
 
         }

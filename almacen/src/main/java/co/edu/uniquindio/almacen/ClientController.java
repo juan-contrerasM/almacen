@@ -106,16 +106,14 @@ public class ClientController implements Initializable {
 
 
         //array donde vamos a guardar los productos
-        private ArrayList<NaturalClient> listNaturalClients = new ArrayList<NaturalClient>();
-        private ArrayList<LegalClient> listLegalClient = new ArrayList<LegalClient>();
-        private ArrayList<String> inventaryC = new ArrayList<>();
-
-
         private ArrayList<RefrigeratedProduct> listRefrigerateProducts=new ArrayList<RefrigeratedProduct>();
         private ArrayList<PackagedProduct>listPackagedProduc= new ArrayList<PackagedProduct>();
         private ArrayList<PerishableProduct>perishableProductList= new ArrayList<PerishableProduct>();
         private ArrayList<String>inventary =new ArrayList<>();
 
+        private ArrayList<NaturalClient> listNaturalClients = new ArrayList<NaturalClient>();
+        private ArrayList<LegalClient> listLegalClient = new ArrayList<LegalClient>();
+        private ArrayList<String> inventaryC = new ArrayList<>();
         // para poder comunicar las ventanas
         private MenuController menuController;
         private Stage stage;
@@ -264,6 +262,15 @@ public class ClientController implements Initializable {
 
         @FXML
         void openManu(ActionEvent event) throws IOException {
+
+                String info="";
+                System.out.println(" aparace desde el controole client");
+                for (String dato:inventaryC ) {
+                        info+=" producto: "+ dato+"  \n";
+                        System.out.println(info);
+
+
+                }
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("menu.fxml"));
                 Parent root = loader.load();
                 MenuController controller = loader.getController();
@@ -289,6 +296,7 @@ public class ClientController implements Initializable {
 
                 create(event);
                 delete(event);
+                loadingInventary();
 
 
         }
@@ -350,6 +358,7 @@ public class ClientController implements Initializable {
         void loadingS(ActionEvent event) {
                 JOptionPane.showMessageDialog(null, "ahora cree rellene los espacios disponibles y uncale en crear");
                 disableTextfields();
+                loadingInventary();
 
         }
 
@@ -383,31 +392,20 @@ public class ClientController implements Initializable {
                 textAreaInventario.setText(info);
 
         }
+        public void  loadingInventary(){
+                String info="";
+                System.out.println("hola3");
+                for (String dato:inventaryC ) {
+                        info+=" producto: "+ dato+"  \n";
+                        System.out.println(info+"perra");
+
+
+                }
+                textAreaInventario.setText(info);
+        }
+
         //getter y setter de los arraylist
 
-        public ArrayList<NaturalClient> getListNaturalClients() {
-                return listNaturalClients;
-        }
-
-        public void setListNaturalClients(ArrayList<NaturalClient> listNaturalClients) {
-                this.listNaturalClients = listNaturalClients;
-        }
-
-        public ArrayList<LegalClient> getListLegalClient() {
-                return listLegalClient;
-        }
-
-        public void setListLegalClient(ArrayList<LegalClient> listLegalClient) {
-                this.listLegalClient = listLegalClient;
-        }
-
-        public ArrayList<String> getInventaryc() {
-                return inventaryC;
-        }
-
-        public void setInventaryc(ArrayList<String> inventaryc) {
-                this.inventaryC = inventaryC;
-        }
 
         public ArrayList<RefrigeratedProduct> getListRefrigerateProducts() {
                 return listRefrigerateProducts;
@@ -440,6 +438,35 @@ public class ClientController implements Initializable {
         public void setInventary(ArrayList<String> inventary) {
                 this.inventary = inventary;
         }
+
+        public ArrayList<NaturalClient> getListNaturalClients() {
+                return listNaturalClients;
+        }
+
+        public void setListNaturalClients(ArrayList<NaturalClient> listNaturalClients) {
+                this.listNaturalClients = listNaturalClients;
+        }
+
+        public ArrayList<LegalClient> getListLegalClient() {
+                return listLegalClient;
+        }
+
+        public void setListLegalClient(ArrayList<LegalClient> listLegalClient) {
+                this.listLegalClient = listLegalClient;
+        }
+
+        public ArrayList<String> getInventaryC() {
+                return inventaryC;
+        }
+
+        public void setInventaryC(ArrayList<String> inventaryC) {
+                this.inventaryC = inventaryC;
+        }
+
+        public Stage getStage() {
+                return stage;
+        }
+
 }
 
 
