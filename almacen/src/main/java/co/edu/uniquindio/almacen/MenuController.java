@@ -109,9 +109,9 @@ public class MenuController  {
 
     @FXML
     void openSales(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("sale.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("saleDetail.fxml"));
         Parent root = loader.load();
-        SaleController controller = loader.getController();
+        SaleDetailController controller = loader.getController();
         controller.setStage(stage); // Pasar la referencia del Stage actual a la nueva ventana
         controller.setInventary(inventary);
         controller.setInventaryC(inventaryC);

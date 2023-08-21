@@ -1,6 +1,6 @@
 
 #btnVenta,#btnMenu{
-    -fx-background-color:linear-gradient(#59D1FE, #3CA3CA);
+    -fx-background-color:linear-gradient(#4FBB0D, #82FC37);
     -fx-border-color: black;
     -fx-border-width: 2px;
     -fx-border-style: groove;
@@ -9,7 +9,7 @@
 
 
 #paneHead,#paneBody{
-    -fx-border-color:#3CA3CA;
+    -fx-border-color:#82FC37;
     -fx-border-radius: 10px 10px 10px 10px;
     -fx-border-width: 5px;
 }
