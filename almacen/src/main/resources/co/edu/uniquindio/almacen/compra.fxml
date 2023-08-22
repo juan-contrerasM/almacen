@@ -13,9 +13,9 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.almacen.compraController">
    <children>
-      <Pane fx:id="paneExterior" layoutX="88.0" layoutY="53.0" prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Pane fx:id="paneExterior" layoutX="88.0" layoutY="53.0" prefHeight="400.0" prefWidth="600.0" stylesheets="@css/compra.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <Pane fx:id="paneInterior" layoutX="28.0" layoutY="31.0" prefHeight="338.0" prefWidth="543.0">
+            <Pane fx:id="paneInterior" layoutX="28.0" layoutY="31.0" prefHeight="338.0" prefWidth="543.0" stylesheets="@css/compra.css">
                <children>
                   <ChoiceBox fx:id="desplegable" layoutX="14.0" layoutY="79.0" onDragDetected="#desplegar" prefHeight="25.0" prefWidth="189.0" />
                   <Label layoutX="82.0" layoutY="16.0" text="Compra">
