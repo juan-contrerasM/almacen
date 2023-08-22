@@ -1,0 +1,22 @@
+
+#btnMenu,#btnCompra{
+    -fx-background-color:linear-gradient(#BB16C8, #DB35E8);
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-border-style: groove;
+    -fx-cursor:hand;
+}
+
+
+#paneInterior,#paneExterior {
+    -fx-border-color: #DB35E8;
+    -fx-border-radius: 10px 10px 10px 10px;
+    -fx-border-width: 5px;
+}
+    .button{
+        -fx-background-color:linear-gradient(#BB16C8, #DB35E8);
+        -fx-border-color: black;
+        -fx-border-width: 2px;
+        -fx-border-style: solid;
+        -fx-cursor:hand;
+}

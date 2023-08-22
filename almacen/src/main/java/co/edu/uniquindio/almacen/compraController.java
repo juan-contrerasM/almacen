@@ -56,7 +56,7 @@ public class compraController extends Application implements Initializable  {
     @FXML
     void Comprar(ActionEvent event) {
         int cantidad = Integer.parseInt(txtCantidad.getText());
-        System.out.println(cantidad);
+        loadingInventary();
         //textAreaValorCompra();
 
 
@@ -306,11 +306,30 @@ public class compraController extends Application implements Initializable  {
 
 
     }
+    public void addInventary(String name){
+        String info="";
+        //se agrega al arraylist
+        inventary.add(name);
+        for (String dato:inventary) {
+            info+=" producto: "+ dato+"  \n";
+
+        }
+        txtFactura.setText(info);
+
+    }
     public void main(){
         llenarArraylist();
     }
+    public void  loadingInventary(){
+        String info="";
+        for (String dato:inventary ) {
+            info+=" producto: "+ dato+"  \n";
+
+
+        }
 
 
 
+    }
     }
 
