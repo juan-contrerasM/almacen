@@ -138,15 +138,10 @@ public class compraController extends Application implements Initializable  {
 
 
     public void llenarArraylist() {
-        System.out.println("hola2");
         totalProduct.addAll(perishableProductList);
         totalProduct.addAll(listPackagedProduc);
         totalProduct.addAll(listRefrigerateProducts);
-        System.out.println(totalProduct.size());
-        for (int i =0;totalProduct.size()>i;i++){
-            nombreProductos.add(totalProduct.get(i).getName());
-            System.out.println(nombreProductos.get(i));
-        }
+
     }
 
 
@@ -306,7 +301,7 @@ public class compraController extends Application implements Initializable  {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        desplegable.getItems().addAll("steven");
+        desplegable.getItems().addAll("arroz");
         llenarArraylist();
 
 
@@ -315,15 +310,7 @@ public class compraController extends Application implements Initializable  {
         llenarArraylist();
     }
 
-    /*@Override
-    public void initialize(URL location, ResourceBundle resources) {
-        //llenarArraylist();
-        //System.out.println(totalProduct.get(0).getName());
-        //for (int i = 0; totalProduct.size() > i; i++) {
-          //  System.out.println(i);
 
-            desplegable.getItems().addAll(totalProduct.get(0).getName());
-        //}*/
 
     }
 

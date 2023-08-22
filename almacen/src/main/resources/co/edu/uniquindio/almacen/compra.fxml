@@ -17,29 +17,23 @@
          <children>
             <Pane fx:id="paneInterior" layoutX="28.0" layoutY="31.0" prefHeight="338.0" prefWidth="543.0" stylesheets="@css/compra.css">
                <children>
-                  <ChoiceBox fx:id="desplegable" layoutX="14.0" layoutY="79.0" onDragDetected="#desplegar" prefHeight="25.0" prefWidth="189.0" />
+                  <ChoiceBox fx:id="desplegable" layoutX="14.0" layoutY="120.0" onDragDetected="#desplegar" prefHeight="25.0" prefWidth="189.0" />
                   <Label layoutX="82.0" layoutY="16.0" text="Compra">
                      <font>
                         <Font name="System Bold Italic" size="15.0" />
                      </font>
                   </Label>
-                  <Label layoutX="14.0" layoutY="54.0" text="Productos disponibles">
+                  <Label layoutX="15.0" layoutY="77.0" text="Productos disponibles">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label layoutX="21.0" layoutY="128.0" text="Cantidad">
+                  <Label layoutX="14.0" layoutY="184.0" text="Cantidad">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtCantidad" layoutX="15.0" layoutY="157.0" prefHeight="25.0" prefWidth="189.0" />
-                  <Label layoutX="21.0" layoutY="203.0" text="Valor Compra">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Label>
-                  <TextArea fx:id="txtAreaValorCompra" layoutX="14.0" layoutY="238.0" onDragDetected="#textAreaValorCompra" prefHeight="37.0" prefWidth="189.0" />
+                  <TextField fx:id="txtCantidad" layoutX="14.0" layoutY="222.0" prefHeight="25.0" prefWidth="189.0" />
                   <Button fx:id="btnCompra" layoutX="77.0" layoutY="293.0" mnemonicParsing="false" onAction="#Comprar" text="Comprar" />
                   <Button fx:id="btnMenu" layoutX="364.0" layoutY="293.0" mnemonicParsing="false" onAction="#openMenu" text="Menu" />
                   <TextArea fx:id="txtFactura" layoutX="254.0" layoutY="45.0" prefHeight="235.0" prefWidth="267.0" />
