@@ -22,7 +22,7 @@
                             <children>
                                 <Button fx:id="btnActualizar" layoutX="103.0" layoutY="21.0" mnemonicParsing="false" onAction="#Actualizar" stylesheets="@css/saleDetail.css" text="Actualizar" />
                                 <Button fx:id="btnMenu" layoutX="434.0" layoutY="22.0" mnemonicParsing="false" onAction="#openMenu" stylesheets="@css/saleDetail.css" text="Menu" />
-                                <Label fx:id="titleSaleDetail" layoutX="200.0" layoutY="20.0" text="Detalle de la venta">
+                                <Label fx:id="titleSaleDetail" layoutX="191.0" layoutY="20.0" prefHeight="32.0" prefWidth="234.0" text="Productos disponibles">
                                     <font>
                                         <Font name="System Bold Italic" size="22.0" />
                                     </font>
@@ -32,11 +32,11 @@
                               <Image url="@imagenes/logoAlmacen.png" />
                            </image>
                         </ImageView>
-                        <ImageView fitHeight="60.0" fitWidth="82.0" layoutX="526.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@imagenes/logoAlmacen.png" />
-                           </image>
-                        </ImageView>
+                        <Button fx:id="btnCompra" layoutX="513.0" layoutY="23.0" mnemonicParsing="false" onAction="#compra" text="Comprar">
+                           <font>
+                              <Font name="System Bold Italic" size="13.0" />
+                           </font>
+                        </Button>
 
                             </children>
                         </Pane>

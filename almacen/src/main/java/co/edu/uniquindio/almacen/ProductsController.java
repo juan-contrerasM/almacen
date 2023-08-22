@@ -212,6 +212,7 @@ public class ProductsController implements Initializable {
         }
         // Esta funcion perimite guardar la informacion que escibieron en los labels y lo almacena de acuerdo el tipo producto que seleccionaron
         @FXML
+
         void create(ActionEvent event) {
 
                 //obteniendo la informacion atributos globales

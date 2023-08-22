@@ -16,6 +16,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -60,6 +61,46 @@ public class SailController {
         columnaTres.setCellValueFactory(new PropertyValueFactory<Product, String>("unitValue"));
         tabla.setItems(totalProduct2);
        // initialize();
+    }
+    @FXML
+    private Button btnCompra;
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @FXML
+    void compra(ActionEvent event)throws IOException {
+        FXMLLoader loader= new FXMLLoader(getClass().getResource("compra.fxml"));
+        Parent root= loader.load();
+        compraController  controller= loader.getController();
+        controller.setInventary(inventary);
+        controller.setInventaryC(inventaryC);
+        controller.setListRefrigerateProducts(listRefrigerateProducts);
+        controller.setListPackagedProduc(listPackagedProduc);
+        controller.setPerishableProductList(perishableProductList);
+        controller.setListLegalClient(listLegalClient);
+        controller.setListNaturalClients(listNaturalClients);
+
+
+
+        controller.setStage(stage); // Pasar la referencia del Stage actual a la nueva ventana
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+        // No cierres el stage actual aquí
+
+    }
+    public void imprimirInformacion(){
+
     }
 
 
@@ -200,9 +241,8 @@ public class SailController {
         ((Stage) btnMenu.getScene().getWindow()).close();
 
     }
-    public void imprimirInformacion(){
-
-    }
+   // public void imprimirInformacion(){
+    // }
 
     public Button getBtnActualizar() {
         return btnActualizar;
