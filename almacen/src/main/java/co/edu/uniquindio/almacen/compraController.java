@@ -23,7 +23,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class compraController extends Application  {
+public class compraController extends Application implements Initializable  {
 
 
     @FXML
@@ -64,9 +64,7 @@ public class compraController extends Application  {
 
     @FXML
     void desplegar(MouseEvent event) {
-        llenarArraylist();
-        System.out.println("hola1");
-        desplegable.getItems().addAll(totalProduct.get(0).getName());
+
 
 
 
@@ -100,9 +98,21 @@ public class compraController extends Application  {
 
 
     }
+    public void addInventary(String name){
+        String info="";
+        //se agrega al arraylist
+        inventary.add(name);
+        for (String dato:inventary) {
+            info+=" producto: "+ dato+"  \n";
+
+        }
+        txtFactura.setText(info);
+
+    }
 
     @FXML
     void textFactura(MouseEvent event) {
+
 
     }
 
@@ -123,6 +133,9 @@ public class compraController extends Application  {
     private ArrayList<String> inventaryC = new ArrayList<>();
     private ArrayList<Product> totalProduct = new ArrayList<>();
 
+    private ArrayList<String> nombreProductos = new ArrayList<>();
+
+
 
     public void llenarArraylist() {
         System.out.println("hola2");
@@ -130,6 +143,10 @@ public class compraController extends Application  {
         totalProduct.addAll(listPackagedProduc);
         totalProduct.addAll(listRefrigerateProducts);
         System.out.println(totalProduct.size());
+        for (int i =0;totalProduct.size()>i;i++){
+            nombreProductos.add(totalProduct.get(i).getName());
+            System.out.println(nombreProductos.get(i));
+        }
     }
 
 
@@ -285,6 +302,17 @@ public class compraController extends Application  {
     @Override
     public void start(Stage primaryStage) {
 
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        desplegable.getItems().addAll("steven");
+        llenarArraylist();
+
+
+    }
+    public void main(){
+        llenarArraylist();
     }
 
     /*@Override
